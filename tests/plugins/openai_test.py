@@ -13,7 +13,11 @@ class TestOpenAIDetector:
             # pragma: allowlist nextline secret
             ('sk-proj-Xi8tdMjHV6pmbBbwilTeT3BlbkFJ3UDnpdEwNNm6wVBpYM0o', True),
             # pragma: allowlist nextline secret
-            ('sk-proj-Xi8tdMjHV6pmbBbwilTeT4BlbkFJ3UDnpdEwNNm6wVBpYM0o', False),
+            ('sk-proj-Xi8tdMjHV6pmbBbwilTeT4BlbkFJ3UDnpdEwNNm6wVBpYM0o', True),
+            # pragma: allowlist nextline secret
+            ('sk-svcacct-Xi8tdMjHV6pmbBbwilTeT4BlbkFJ3UDnpdEwNNm6wVBpYM0o', True),
+            ('sk-proj-short', False),
+            ('sk-ant-api03-Xi8tdMjHV6pmbBbwilTeT4BlbkFJ3UDnpdEwNNm6wVBpYM0o', False),
         ],
     )
     def test_analyze(self, payload, should_flag):
