@@ -18,16 +18,16 @@ with open('README.md', encoding='utf-8') as f:
 
 
 setup(
-    name='detect_secrets',
+    name='egressai-detect-secrets',
     packages=find_packages(exclude=(['test*', 'tmp*'])),
     version=VERSION,
-    description='Tool for detecting secrets in the codebase',
+    description='EgressAI provider-aware secret detection library',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    author='Yelp, Inc.',
-    author_email='opensource@yelp.com',
-    url='https://github.com/Yelp/detect-secrets',
-    download_url='https://github.com/Yelp/detect-secrets/archive/{}.tar.gz'.format(VERSION),
+    author='EgressAI',
+    author_email='security@egressai.dev',
+    url='https://github.com/egressai/detect-secrets',
+    download_url='https://github.com/egressai/detect-secrets/archive/{}.tar.gz'.format(VERSION),
     keywords=['secret-management', 'pre-commit', 'security', 'entropy-checks'],
     install_requires=[
         'pyyaml',
@@ -51,6 +51,7 @@ setup(
         'console_scripts': [
             'detect-secrets = detect_secrets.main:main',
             'detect-secrets-hook = detect_secrets.pre_commit_hook:main',
+            'egressai-detect-secrets = detect_secrets.main:main',
         ],
     },
     classifiers=[

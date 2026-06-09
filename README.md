@@ -4,12 +4,21 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)](https://github.com/Yelp/detect-secrets/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22+)
 [![AMF](https://img.shields.io/badge/Donate-Charity-orange.svg)](https://www.againstmalaria.com/donation.aspx)
 
-# detect-secrets
+# egressai-detect-secrets
 
 ## About
 
-`detect-secrets` is an aptly named module for (surprise, surprise) **detecting secrets** within a
-code base.
+`egressai-detect-secrets` is EgressAI's provider-aware fork of `detect-secrets`.
+It keeps the existing Python import path and CLI compatibility while adding detectors that classify
+which provider a secret belongs to.
+
+This fork is used as the local secret identification layer for EgressAI Redact. EgressAI owns
+redaction, placeholder assignment, policy, and safe output formatting on top of this package.
+
+## Upstream
+
+This project is forked from Yelp's `detect-secrets`, an aptly named module for detecting secrets
+within a code base.
 
 However, unlike other similar packages that solely focus on finding secrets, this package is
 designed with the enterprise client in mind: providing a **backwards compatible**, systematic
@@ -91,14 +100,19 @@ $ git ls-files -z | xargs -0 detect-secrets-hook --baseline .secrets.baseline
 
 ```bash
 $ detect-secrets scan --list-all-plugins
+AnthropicDetector
 ArtifactoryDetector
 AWSKeyDetector
+AzureConnectionStringDetector
 AzureStorageKeyDetector
 BasicAuthDetector
 CloudantDetector
+DatabaseUrlDetector
 DiscordBotTokenDetector
 GitHubTokenDetector
 GitLabTokenDetector
+GoogleApiKeyDetector
+HuggingFaceTokenDetector
 Base64HighEntropyString
 HexHighEntropyString
 IbmCloudIamDetector
@@ -210,6 +224,12 @@ with transient_settings({
 ```bash
 $ pip install detect-secrets
 ✨🍰✨
+```
+
+For the EgressAI fork:
+
+```bash
+$ pip install egressai-detect-secrets
 ```
 
 Install via [brew](https://brew.sh/):
